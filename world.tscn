@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 509, 28.5 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Mundo" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 508.5, 299 )
@@ -20,4 +20,4 @@ position = Vector2( 507, 560.5 )
 shape = SubResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 520 )
+position = Vector2( 332, 305 )

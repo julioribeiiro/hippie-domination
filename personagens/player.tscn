@@ -43,8 +43,13 @@ extents = Vector2( 27.5, 32 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+offset_h = 1.0
+offset_v = -1.0
+
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 21.5, -21.5 )
+position = Vector2( -272.5, 187.5 )
 scale = Vector2( 2.34375, 2.34375 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -56,8 +61,5 @@ anims/andar = SubResource( 1 )
 anims/respirando = SubResource( 2 )
 
 [node name="hitbox" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 17.5, -17 )
+position = Vector2( -276.5, 192 )
 shape = SubResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
