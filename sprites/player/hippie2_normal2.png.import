@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pista.jpeg-28a9d13ceb31aafc3e9152e5fa9d9c05.stex"
+path="res://.import/hippie2_normal2.png-eae5b7fccb2d5277040419905a0b15cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cenarios/pista.jpeg"
-dest_files=[ "res://.import/pista.jpeg-28a9d13ceb31aafc3e9152e5fa9d9c05.stex" ]
+source_file="res://sprites/player/hippie2_normal2.png"
+dest_files=[ "res://.import/hippie2_normal2.png-eae5b7fccb2d5277040419905a0b15cb.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
