@@ -9,11 +9,18 @@ export var JUMP_FORCE = 300
 onready var follower = preload("res://personagens/follower.tscn")
 
 var motion = Vector2()
+var pause = true ;
 
 func _ready():
 	$Sprite/AnimationPlayer.play("andar")
 
 func _physics_process(delta):
+	if(Input.is_action_pressed("ESC")):
+		if(pause == false):
+			pause = true ;
+		else :
+			pause = false ;
+		set_process(pause)
 	# movements
 	motion.x = MAX_SPEED
 	motion.y += GRAVITY
