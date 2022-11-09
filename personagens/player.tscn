@@ -1,7 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/player/HIPPIE.png" type="Texture" id=1]
 [ext_resource path="res://personagens/player.gd" type="Script" id=2]
+[ext_resource path="res://personagens/followersParent.gd" type="Script" id=3]
+[ext_resource path="res://personagens/cops.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 3.0
+height = 48.0
 
 [sub_resource type="Animation" id=1]
 resource_name = "andar"
@@ -37,7 +43,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 27.5, 32 )
+extents = Vector2( 14, 32 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 3.0
@@ -45,6 +51,7 @@ height = 56.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "convert"
+length = 0.4
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -52,7 +59,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -65,14 +72,16 @@ tracks/0/keys = {
 [node name="Main" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="Main"]
-position = Vector2( 450, -100 )
-current = true
-offset_h = -1.0
-offset_v = -1.0
+[node name="player_die_area" type="StaticBody2D" parent="Main"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/player_die_area"]
+position = Vector2( -10, -17 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Main"]
-position = Vector2( 4.5, -5.5 )
+position = Vector2( 5, -5 )
 scale = Vector2( 2.34375, 2.34375 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -84,17 +93,30 @@ anims/andar = SubResource( 1 )
 anims/respirando = SubResource( 2 )
 
 [node name="hitbox" type="CollisionShape2D" parent="Main"]
-position = Vector2( 0.5, -1 )
+position = Vector2( 14, -1 )
 shape = SubResource( 3 )
 
 [node name="convertArea" type="Area2D" parent="Main"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/convertArea"]
+[node name="convertArea" type="CollisionShape2D" parent="Main/convertArea"]
 position = Vector2( 33, -1 )
 shape = SubResource( 4 )
 
 [node name="convert_anim" type="AnimationPlayer" parent="Main"]
 anims/convert = SubResource( 5 )
+
+[node name="followers" type="Node" parent="Main"]
+script = ExtResource( 3 )
+
+[node name="Cops" parent="." instance=ExtResource( 4 )]
+position = Vector2( -246, 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 206, -100 )
+current = true
+limit_top = 60
+offset_h = -1.0
+offset_v = -1.0
 
 [node name="Cenario" type="Node" parent="."]
 

@@ -1,14 +1,20 @@
 extends StaticBody2D
 
-# Called when the node enters the scene tree for the first time.
+var player
+
 func _ready():
-	pass # Replace with function body.
+#	player = get_parent().get_parent().get_child(1)
+#	position.y =  player.position.y
+#	position.x =  player.position.x + 30
+	pass
+
 
 func converted():
 	$AnimationPlayer.play("coverting")
-	print("converted")
 
 func disapear():
 	$".".queue_free()
-#func _process(delta):
-#	pass
+
+func _process(delta):
+	pass
+#	print('vilan: '+String(position))
