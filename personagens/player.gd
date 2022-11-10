@@ -8,7 +8,7 @@ export var ACELERATION = 5
 export var CAMERA_ACELERATION = 5
 export var MIN_SPEED = 100
 export var MAX_SPEED = 300
-export var JUMP_FORCE = 300
+export var JUMP_FORCE = 400
 onready var follower = preload("res://personagens/follower.tscn")
 var n_followers = 0
 var last_follower
@@ -18,6 +18,7 @@ var camera_speed = 0
 var camera
 var initial_position = 0
 var max_speed_increased = 0
+var score = 0
 
 var motion = Vector2()
 var pause = true ;
@@ -69,16 +70,14 @@ func _physics_process(delta):
 	
 	if time % 150 == 0:
 		max_speed_increased += 5
+	
+	addScore(delta)
 
-func _on_convertArea_body_entered(body):
-	if body.name == 'vilan':
-		$hitbox.disabled = true
-		body.converted()
-		$convert_anim.play("convert")
+func add_follower():
+	$convert_anim.play("convert")
 
 func add_new_follower():
 	var inst = follower.instance()
-	n_followers += 1
 	$followers.add_child(inst)
 	
 func get_position():
@@ -88,3 +87,7 @@ func check_fall():
 	if position.y - initial_position  > 100:
 		get_parent().get_parent().lose()
 
+func addScore(delta):
+	n_followers = $followers.get_child_count()
+	score += (delta*n_followers)
+	get_parent().get_child(2).get_child(0).text = 'Seguidores: '+String(n_followers)+'x\n'+'Score: '+String(int(score))

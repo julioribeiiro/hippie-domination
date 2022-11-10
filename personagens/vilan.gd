@@ -1,12 +1,15 @@
-extends StaticBody2D
+extends Area2D
 
 var player
 
+var type = [
+	'woman',
+	'man'
+]
+
 func _ready():
-#	player = get_parent().get_parent().get_child(1)
-#	position.y =  player.position.y
-#	position.x =  player.position.x + 30
-	pass
+	randomize()
+	$Sprite.play(type[randi() % len(type)])
 
 
 func converted():
@@ -18,3 +21,8 @@ func disapear():
 func _process(delta):
 	pass
 #	print('vilan: '+String(position))
+
+
+func _on_vilan_body_entered(body):
+	converted()
+	body.add_follower()

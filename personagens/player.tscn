@@ -118,6 +118,13 @@ limit_top = 60
 offset_h = -1.0
 offset_v = -1.0
 
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = 277.0
+margin_top = 211.0
+margin_right = 317.0
+margin_bottom = 225.0
+text = "3000 pts"
+
 [node name="Cenario" type="Node" parent="."]
 
 [connection signal="body_entered" from="Main/convertArea" to="Main" method="_on_convertArea_body_entered"]

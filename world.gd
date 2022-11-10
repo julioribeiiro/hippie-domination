@@ -3,10 +3,10 @@ extends Node2D
 onready var vilan = preload("res://personagens/vilan1.tscn")
 var time = 0
 var player
-const initial_ground = preload("res://floor_area/D.tscn")
+const initial_ground = preload("res://floor_area/A.tscn")
 
 var segments = [
-	preload("res://floor_area/E.tscn"),
+	preload("res://floor_area/A.tscn"),
 #	preload("res://floor_area/b.tscn"),
 #	preload("res://floor_area/C.tscn"),
 ]
@@ -25,7 +25,7 @@ func _ready():
 func _process(delta):
 	time += 1
 	for area in $floor.get_children():
-		if area.position.x - player.position.x < -1265:
+		if area.position.x - player.position.x < -1350:
 			spawn_inst(area.position.x+2048, 550)
 			area.queue_free()
 	
