@@ -1,16 +1,20 @@
 extends Node2D
 
-onready var vilan = preload("res://personagens/vilan1.tscn")
 var time = 0
 var player
 const initial_ground = preload("res://floor_area/A.tscn")
 
 var segments = [
-	preload("res://floor_area/A.tscn"),
-#	preload("res://floor_area/b.tscn"),
-#	preload("res://floor_area/C.tscn"),
+#	preload("res://floor_area/A.tscn"),
+	preload("res://floor_area/b.tscn"),
+	preload("res://floor_area/C.tscn"),
 ]
 
+var items = [
+	preload("res://personagens/vilan1.tscn"),
+	preload("res://personagens/vilan1.tscn"),
+	preload("res://floor_area/Van.tscn"),
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,11 +33,10 @@ func _process(delta):
 			spawn_inst(area.position.x+2048, 550)
 			area.queue_free()
 	
-	if (time % 10 == 0):
-		var inst = vilan.instance()
+	if (time % 300 == 0):
+		var inst = items[randi() % len(items)].instance()
 		inst.position = Vector2($floor.get_children()[1].position.x+1024, 512)
 		$villan.add_child(inst)
-
 
 func spawn_inst(x, y):
 	var inst = segments[randi() % len(segments)].instance()

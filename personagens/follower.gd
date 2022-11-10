@@ -18,8 +18,11 @@ var jump = false
 var last_jump_position = 0
 var initial_position = 0
 
+var colors = ['black', 'brown', 'white']
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite.play(colors[randi() % len(colors)])
 	initial_position = position.y
 	player = get_parent().get_parent()
 	n_followers = get_parent().n_followers

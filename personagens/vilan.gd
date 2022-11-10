@@ -24,5 +24,6 @@ func _process(delta):
 
 
 func _on_vilan_body_entered(body):
-	converted()
-	body.add_follower()
+	if(body.name == "Main"):
+		converted()
+		body.add_follower()

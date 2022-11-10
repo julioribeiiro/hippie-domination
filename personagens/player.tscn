@@ -59,7 +59,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -127,4 +127,4 @@ text = "3000 pts"
 
 [node name="Cenario" type="Node" parent="."]
 
-[connection signal="body_entered" from="Main/convertArea" to="Main" method="_on_convertArea_body_entered"]
+[connection signal="area_entered" from="Main/convertArea" to="Main" method="_on_convertArea_area_entered"]

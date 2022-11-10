@@ -1,14 +1,35 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/player/hippie2_running.png" type="Texture" id=1]
 [ext_resource path="res://sprites/player/hippie2_normal2.png" type="Texture" id=2]
 [ext_resource path="res://personagens/follower.gd" type="Script" id=3]
+[ext_resource path="res://sprites/player/crowd hippie 2 running.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player/crowd hippie 2 normal.png" type="Texture" id=5]
+[ext_resource path="res://sprites/player/hippie2.2 normal.png" type="Texture" id=6]
+[ext_resource path="res://sprites/player/hippie2.2 running.png" type="Texture" id=7]
+[ext_resource path="res://sprites/player/hippie2.3 normal.png" type="Texture" id=8]
+[ext_resource path="res://sprites/player/hippie2.3 running.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
+"name": "black",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "brown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "multi",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "white",
 "speed": 5.0
 } ]
 
@@ -56,6 +77,8 @@ script = ExtResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
+animation = "brown"
+playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
 autoplay = "walk"
