@@ -89,8 +89,9 @@ func check_fall():
 
 func addScore(delta):
 	n_followers = $followers.get_child_count()
-	score += (delta*n_followers)
-	get_parent().get_child(2).get_child(0).text = 'Seguidores: '+String(n_followers)+'x\n'+'Score: '+String(int(score))
+	score += (delta*(n_followers+1))
+	Globals.score = score
+	get_parent().get_child(2).get_child(0).text = 'Followers: '+String(n_followers)+'x\n'+'Score: '+String(int(Globals.score))
 
 func _on_convertArea_area_entered(area):
 	if area.name == 'van':

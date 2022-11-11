@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/man-is-he-mega-glbml-22045.mp3-94510aac2497f70eb332f124158369c1.mp3str"
+
+[deps]
+
+source_file="res://man-is-he-mega-glbml-22045.mp3"
+dest_files=[ "res://.import/man-is-he-mega-glbml-22045.mp3-94510aac2497f70eb332f124158369c1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

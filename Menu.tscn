@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/main menu/New Piskel.png" type="Texture" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://sprites/cenarios/back_buildings_new.png" type="Texture" id=5]
 [ext_resource path="res://sprites/cenarios/background_new.png" type="Texture" id=6]
 [ext_resource path="res://sprites/cenarios/main_clouds_new.png" type="Texture" id=7]
-[ext_resource path="res://sprites/cenarios/viatura.jpeg" type="Texture" id=8]
+[ext_resource path="res://man-is-he-mega-glbml-22045.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sprites/main menu/quit 2.png" type="Texture" id=9]
+[ext_resource path="res://sprites/main menu/quit 1.png" type="Texture" id=10]
 
 [node name="Menu" type="Control"]
 anchor_left = 0.5
@@ -36,12 +38,6 @@ motion_offset = Vector2( 0.05, 0 )
 position = Vector2( 1490, 429 )
 texture = ExtResource( 5 )
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 2037, 442 )
-texture = ExtResource( 8 )
-
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
@@ -49,39 +45,64 @@ position = Vector2( 6, 303 )
 texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 479, 297 )
+position = Vector2( 492, 255 )
 scale = Vector2( 20.2734, 15.1309 )
 texture = ExtResource( 2 )
 region_filter_clip = true
 
-[node name="Control" type="Control" parent="."]
+[node name="Control2" type="Control" parent="."]
 margin_left = 427.0
 margin_top = 359.6
 margin_right = 597.0
 margin_bottom = 359.6
 rect_scale = Vector2( 11, 11 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
 anchor_left = 0.5
 anchor_top = 0.636
 anchor_right = 0.5
 anchor_bottom = 0.66
-margin_left = -94.2727
-margin_top = -11.6
-margin_right = 75.7273
-margin_bottom = 32.4
+margin_left = -94.0
+margin_top = -12.0
+margin_right = -62.0
+margin_bottom = 20.0
 mouse_filter = 2
 
-[node name="QuitButton" type="TextureButton" parent="Control/VBoxContainer"]
-margin_right = 170.0
-
-[node name="StartButton" type="TextureButton" parent="Control/VBoxContainer"]
-margin_top = 4.0
-margin_right = 170.0
-margin_bottom = 36.0
+[node name="StartButton" type="TextureButton" parent="Control2/VBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( -859, -291.6 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
+[node name="Control" type="Control" parent="."]
+margin_left = 435.0
+margin_top = 430.0
+margin_right = 605.0
+margin_bottom = 430.0
+rect_scale = Vector2( 2.5, 2.5 )
+rect_pivot_offset = Vector2( -0.049, 0.059 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = 0.463
+anchor_top = 0.008
+anchor_right = 0.5
+anchor_bottom = 0.564
+margin_left = -94.71
+margin_top = 9.0
+margin_right = -37.0
+margin_bottom = 78.0
+mouse_filter = 2
+
+[node name="QuitButton" type="TextureButton" parent="Control/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[connection signal="pressed" from="Control2/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

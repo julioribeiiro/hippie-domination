@@ -44,4 +44,5 @@ func spawn_inst(x, y):
 	$floor.add_child(inst)
 
 func lose():
-	get_tree().reload_current_scene()
+	# get_tree().reload_current_scene()
+	get_tree().change_scene("res://Game_over.tscn")
